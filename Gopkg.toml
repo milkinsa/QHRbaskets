@@ -49,3 +49,7 @@ ignored = ["golang.org/x/sys/*"]
 [prune]
   go-tests = true
   unused-packages = true
+
+[metadata.heroku]
+  root-package = "QHRbaskets"
+  install = [ "./..." ]
