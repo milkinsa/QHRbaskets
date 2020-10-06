@@ -22,6 +22,11 @@ var (
     #baskets li:before { content: "\f291"; font-family: "FontAwesome"; padding-right: 5px; }
   </style>
 
+  <link rel="stylesheet" href="https://darklynx.github.io/strapdown/v/gh-fork-ribbon/gh-fork-ribbon.css">
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" href="https://darklynx.github.io/strapdown/v/gh-fork-ribbon/gh-fork-ribbon.ie.css">
+  <![endif]-->
+
   <script>
   (function($) {
     function randomName() {
@@ -89,6 +94,8 @@ var (
   </script>
 </head>
 <body>
+  <a class="github-fork-ribbon left-top" href="https://github.com/darklynx/request-baskets" title="Fork me on GitHub">Fork me on GitHub</a>
+
   <!-- Fixed navbar -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -96,6 +103,11 @@ var (
         <a id="refresh" class="navbar-brand" href="#">Request Baskets</a>
       </div>
       <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="readme.html">Documentation</a></li>
+          <li><a href="api.html">REST API</a></li>
+          <li><a href="https://github.com/darklynx/request-baskets">Source Code</a></li>
+        </ul>
         <form class="navbar-form navbar-right">
           <a href="/web/baskets" alt="Administration" title="Administration" class="btn btn-default">
             <span class="glyphicon glyphicon-cog"></span>
