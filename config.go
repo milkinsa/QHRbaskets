@@ -57,8 +57,12 @@ func (v *arrayFlags) Set(value string) error {
          port = "4747"
          fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
      }
-	 port :=strconv.Atoi(port)
-     return port
+	 tempport, err :=strconv.Atoi(port)
+	 if err != nil {
+        // handle error
+        fmt.Println(err)
+    }
+     return tempport
  }
 
 // CreateConfig creates server configuration base on application command line arguments
