@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	defaultServicePort  = 22426
+	defaultServicePort  = http.ListenAndServe(GetPort(), nil)
 	defaultServiceAddr  = ""
 	defaultPageSize     = 20
 	initBasketCapacity  = 200
@@ -46,6 +46,16 @@ func (v *arrayFlags) Set(value string) error {
 	*v = append(*v, value)
 	return nil
 }
+
+ func GetPort() string {
+	 var port = os.Getenv("PORT")
+     // Set a default port if there is nothing in the environment
+     if port == "" {
+         port = "4747"
+         fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
+     }
+     return ":" + port
+ }
 
 // CreateConfig creates server configuration base on application command line arguments
 func CreateConfig() *ServerConfig {
