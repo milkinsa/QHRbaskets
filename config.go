@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	defaultServicePort  = http.ListenAndServe(GetPort(), nil)
+	defaultServicePort  = GetPort()
 	defaultServiceAddr  = ""
 	defaultPageSize     = 20
 	initBasketCapacity  = 200
