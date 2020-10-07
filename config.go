@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"strconv"
 )
 
 const (
@@ -56,6 +57,7 @@ func (v *arrayFlags) Set(value string) error {
          port = "4747"
          fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
      }
+	 port :=strconv.Atoi(port)
      return port
  }
 
