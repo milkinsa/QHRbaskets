@@ -9,7 +9,7 @@ import (
 
 const (
 	defaultServicePort  = 22426
-	defaultServiceAddr  = ":"
+	defaultServiceAddr  = "99.80.183.117"
 	defaultPageSize     = 20
 	initBasketCapacity  = 200
 	maxBasketCapacity   = 2000
