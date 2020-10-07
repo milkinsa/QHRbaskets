@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	defaultServicePort  = GetPort()
+	defaultServicePort  = 55555
 	defaultServiceAddr  = ""
 	defaultPageSize     = 20
 	initBasketCapacity  = 200
@@ -56,12 +56,12 @@ func (v *arrayFlags) Set(value string) error {
          port = "4747"
          fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
      }
-     return ":" + port
+     return port
  }
 
 // CreateConfig creates server configuration base on application command line arguments
 func CreateConfig() *ServerConfig {
-	var port = flag.Int("p", defaultServicePort, "HTTP service port")
+	var port = flag.Int("p", GetPort(), "HTTP service port")
 	var address = flag.String("l", defaultServiceAddr, "HTTP listen address")
 	var initCapacity = flag.Int("size", initBasketCapacity, "Initial basket size (capacity)")
 	var maxCapacity = flag.Int("maxsize", maxBasketCapacity, "Maximum allowed basket size (max capacity)")
