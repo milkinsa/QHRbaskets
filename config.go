@@ -49,7 +49,7 @@ func (v *arrayFlags) Set(value string) error {
 	return nil
 }
 
- func GetPort() int {
+ func GetPort() string {
 	 var port = os.Getenv("PORT")
      // Set a default port if there is nothing in the environment
      if port == "" {
