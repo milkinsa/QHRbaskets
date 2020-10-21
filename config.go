@@ -64,6 +64,15 @@ func (v *arrayFlags) Set(value string) error {
      return tempport
  }
 
+ func GetDtbUrl() int {
+	 
+	dns := os.Getenv("DATABASE_URL")
+	if dns == "" {
+        log.Fatal("$DATABASE_URL is not set")
+	   }
+     return dns
+ }
+
 // CreateConfig creates server configuration base on application command line arguments
 func CreateConfig() *ServerConfig {
 	var port = flag.Int("p", GetPort(), "HTTP service port")
@@ -75,7 +84,7 @@ func CreateConfig() *ServerConfig {
 	var dbType = flag.String("db", defaultDatabaseType, fmt.Sprintf(
 		"Baskets storage type: %s - in-memory, %s - Bolt DB, %s - SQL database", DbTypeMemory, DbTypeBolt, DbTypeSQL))
 	var dbFile = flag.String("file", "./baskets.db", "Database location, only applicable for file or SQL databases")
-	var dbConnection = flag.String("conn", "", "Database connection string for SQL databases, if undefined \"file\" argument is considered")
+	var dbConnection = flag.String("conn", GetDtbUrl(), "Database connection string for SQL databases, if undefined \"file\" argument is considered")
 
 	var baskets arrayFlags
 	flag.Var(&baskets, "basket", "Name of a basket to auto-create during service startup (can be specified multiple times)")
