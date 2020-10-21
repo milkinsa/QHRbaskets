@@ -49,7 +49,7 @@ func (v *arrayFlags) Set(value string) error {
 	return nil
 }
 
- func GetPort() string {
+ func GetPort() int {
 	 var port = os.Getenv("PORT")
      // Set a default port if there is nothing in the environment
      if port == "" {
@@ -64,7 +64,7 @@ func (v *arrayFlags) Set(value string) error {
      return tempport
  }
 
- func GetDtbUrl() int {
+ func GetDtbUrl() string {
 	 
 	dns := os.Getenv("DATABASE_URL")
 	if dns == "" {
